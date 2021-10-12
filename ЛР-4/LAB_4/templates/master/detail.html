@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ animal.animal_name}}{% endblock %}
+
+{% block content %}
+
+    <center><h1>{{ animal.animal_name }}</h1></center><hr><br>
+{#    Вид животного: {{ animal.animal_type }}<br>#}
+{#    Имя животного: {{ animal.animal_name }}<br>#}
+{#    <br>#}
+{#    Фото животного<br>#}
+{#    <img src="{{ animal.animal_photo }}" alt="Фото животного не найдено">#}
+    <table border="1" cellpadding="5">
+    <tr>
+        <th>Вид животного</th>
+        <th>{{ animal.animal_type }}</th>
+    </tr>
+    <tr>
+        <th>Имя животного</th>
+        <th>{{ animal.animal_name }}</th>
+    </tr>
+    <tr>
+        <th>Фото животного</th>
+        <th><img src="{{ animal.animal_photo }}" alt="Фото животного не найдено"></th>
+    </tr>
+    </table>
+    <br><hr><br>
+    <a href="/master">Назад</a>
+
+{% endblock %}
