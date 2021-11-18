@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}ЛР №5{% endblock %}
+
+{% block content %}
+
+    <center><h1>Список животных</h1></center><hr><br>
+
+    {% if a_list %}
+        <ul>
+        {% for a in a_list %}
+            <li><a href="{% url 'App:detail' a.id %}">{{ a.animal_name }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        Список пуст
+    {% endif %}
+
+{% endblock %}
