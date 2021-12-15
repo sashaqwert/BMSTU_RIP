@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}РК №2{% endblock %}
+
+{% block content %}
+
+    <center><h1>Список курсов</h1></center><hr><br>
+
+    {% if c_list %}
+        {% for c in c_list %}
+            <a href="{% url 'course_detail' c.id %}">{{ c.number }}</a><br>
+        {% endfor %}
+    {% else %}
+        Список пуст
+    {% endif %}
+
+{% endblock %}

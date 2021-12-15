@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}РК №2{% endblock %}
+
+{% block content %}
+
+    <center><h1>Список групп</h1></center><hr><br>
+
+    {% if g_list %}
+        {% for g in g_list %}
+            <a href="{% url 'group_detail' g.id %}">{{ g.number }}</a><br>
+        {% endfor %}
+    {% else %}
+        Список пуст
+    {% endif %}
+
+{% endblock %}

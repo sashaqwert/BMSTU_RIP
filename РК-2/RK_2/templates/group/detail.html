@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ group.number}}{% endblock %}
+
+{% block content %}
+
+    <center><h1>{{ group.number }}</h1></center><hr><br>
+
+    <table border="1" cellpadding="5">
+    <tr>
+        <th>Курс</th>
+        <th>{{ group.course.number }}</th>
+    </tr>
+    <tr>
+        <th>Группа</th>
+        <th>{{ group.number }}</th>
+    </tr>
+    </table>
+    <br><hr><br>
+    <a href="/app/g_list">Назад</a>
+
+{% endblock %}
