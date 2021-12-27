@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Животные</string>
+    <string name="action_settings">Настройки</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Животные</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="version">"Версия: "</string>
+    <string name="versionCode">"Номер сборки: "</string>
+    <string name="license">"Лицензия: "</string>
+    <string name="privacy">Политика конфиденциальности</string>
+    <string name="license_button">Просмотреть лицензию</string>
+    <string name="sourceCode">Исходный код</string>
+    <string name="send_logcat">Отправить лог</string>
+    <string name="about">О программе</string>
+    <string name="onlyForDevelopers">Данная функция предназначена только для разработчиков!</string>
+    <string name="animal_name">Кличка</string>
+    <string name="animal_type">Вид животного</string>
+    <string name="animal_photo_alternative_text">Фото животного</string>
+    <string name="title_activity_animalInfo">О животном</string>
+    <string name="animal_photo_url">Ссылка на картинку (https://...)</string>
+    <string name="action_save">Сохранить</string>
+    <string name="dialog_fail_download_text">Проверьте, подключено ли ваше Android устройство (или эмулятор) к интернету и повторите попытку.\\nВ настоящее время приложение поддерживает только HTTPS трафик.</string>
+    <string name="dialog_fail_download_title">Ошибка загрузки данных</string>
+    <string name="retry">Попробывать ещё раз</string>
+    <string name="activity_animal_add">Новое животное</string>
+    <string name="fail_add_animal">Не удалось добавить новое животное!</string>
+    <string name="action_update">Обновить</string>
+    <string name="developer">"Разработчик: "</string>
+    <string name="developer_fio">Чиварзин А. Е.</string>
+    <string name="developer_group">"Группа: "</string>
+    <string name="developer_group_value">ИУ5Ц-72Б</string>
+    <string name="action_delete">Удалить</string>
+    <string name="open_API">Открыть API</string>
+</resources>

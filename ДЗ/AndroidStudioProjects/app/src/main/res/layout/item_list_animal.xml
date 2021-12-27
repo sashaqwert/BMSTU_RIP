@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#FF6200EE"
+        >
+
+        <ImageView
+            android:id="@+id/list_animal_photo"
+            android:layout_width="match_parent"
+            android:layout_margin="8dp"
+            android:layout_height="200dp"
+            android:contentDescription="@string/animal_photo_alternative_text" />
+
+        <TextView
+            android:id="@+id/list_animal_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/animal_name"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/list_animal_type"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/animal_type"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
