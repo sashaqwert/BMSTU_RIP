@@ -1,11 +1,15 @@
 package ru.sccraft.bmstulabs.rip.animals
 
+import android.content.DialogInterface
+import android.content.Intent
+import android.net.Uri
 import android.os.AsyncTask
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import okhttp3.MediaType
@@ -24,6 +28,8 @@ class AnimalInfoActivity : AppCompatActivity() {
          var animal_id = 0
      }
 
+    private var показывать_диалог_удаления = false
+
     private lateinit var tv_name :TextView
     private lateinit var tv_type :TextView
     private lateinit var img :ImageView
@@ -39,6 +45,9 @@ class AnimalInfoActivity : AppCompatActivity() {
             animal_type = intent.getStringExtra("animal_type")!!
             animal_photo = intent.getStringExtra("animal_photo")!!
             animal_id = intent.getIntExtra("animal_id", 0)
+        }
+        else {
+            показывать_диалог_удаления = savedInstanceState.getBoolean("delete_dialog")
         }
 
         tv_name = findViewById(R.id.info_animal_name)
@@ -67,7 +76,8 @@ class AnimalInfoActivity : AppCompatActivity() {
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_delete -> {
-                удалить_животное()
+                показывать_диалог_удаления = true
+                показать_диалог_удаления()
                 return true
             }
             else -> super.onOptionsItemSelected(item)
@@ -106,5 +116,30 @@ class AnimalInfoActivity : AppCompatActivity() {
 
         val поток = Поток()
         поток.execute()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putBoolean("delete_dialog", показывать_диалог_удаления)
+    }
+
+    private fun показать_диалог_удаления() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(R.string.dialog_delete_title)
+        builder.setMessage(R.string.dialog_delete_text)
+        builder.setCancelable(true)
+
+        builder.setPositiveButton(R.string.yes) { dialog, id ->
+            удалить_животное()
+        }
+
+        builder.setNegativeButton(R.string.no) { dialog, id ->
+            показывать_диалог_удаления = false
+        }
+        builder.setOnCancelListener { dialogInterface: DialogInterface ->
+            показывать_диалог_удаления = false
+        }
+
+        builder.show()
     }
 }

@@ -36,4 +36,8 @@
     <string name="developer_group_value">ИУ5Ц-72Б</string>
     <string name="action_delete">Удалить</string>
     <string name="open_API">Открыть API</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="dialog_delete_title">Удалить животное?</string>
+    <string name="dialog_delete_text">Текущее животное будет безвозвратно удалено для всех пользователей приложения.\nВы действительно хотите продолжить?</string>
 </resources>
