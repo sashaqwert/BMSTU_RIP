@@ -4,11 +4,7 @@
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">Животные</string>
     <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="version">"Версия: "</string>
     <string name="versionCode">"Номер сборки: "</string>
     <string name="license">"Лицензия: "</string>
@@ -24,7 +20,7 @@
     <string name="title_activity_animalInfo">О животном</string>
     <string name="animal_photo_url">Ссылка на картинку (https://...)</string>
     <string name="action_save">Сохранить</string>
-    <string name="dialog_fail_download_text">Проверьте, подключено ли ваше Android устройство (или эмулятор) к интернету и повторите попытку.\\nВ настоящее время приложение поддерживает только HTTPS трафик.</string>
+    <string name="dialog_fail_download_text">Проверьте, подключено ли ваше Android устройство (или эмулятор) к интернету и повторите попытку.\nВ настоящее время приложение поддерживает только HTTPS трафик.</string>
     <string name="dialog_fail_download_title">Ошибка загрузки данных</string>
     <string name="retry">Попробывать ещё раз</string>
     <string name="activity_animal_add">Новое животное</string>
