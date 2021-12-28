@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/list_animal_photo"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="8dp"
+        android:layout_weight="1"
+        android:contentDescription="@string/animal_photo_alternative_text"
+        tools:srcCompat="@tools:sample/avatars" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/list_animal_photo"
-            android:layout_width="match_parent"
-            android:layout_margin="8dp"
-            android:layout_height="200dp"
-            android:contentDescription="@string/animal_photo_alternative_text" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_gravity="center_vertical">
 
         <TextView
             android:id="@+id/list_animal_name"
@@ -35,4 +40,5 @@
             android:textStyle="bold"
             android:textSize="16sp" />
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
