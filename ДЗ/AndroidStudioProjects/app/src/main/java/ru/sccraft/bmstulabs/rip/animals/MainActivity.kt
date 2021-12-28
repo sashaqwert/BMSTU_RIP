@@ -77,8 +77,13 @@ class MainActivity : AppCompatActivity() {
                     val animalList = response.body()
                     if (animalList != null) {
                         Log.i("MainActivity", "Данные из API успешно получены!")
-                        val adapter = ArrayAdapter<Animal>(this@MainActivity, android.R.layout.simple_list_item_1, android.R.id.text1, animalList)
-                        lw.adapter = adapter
+                        val список_животных = ArrayList<Animal>()
+                        for (a in animalList) {
+                            if (a != null)
+                                список_животных.add(a)
+                        }
+                        val адаптер = AnimalAdapter(this@MainActivity, список_животных)
+                        lw.adapter = адаптер
                         lw.setOnItemClickListener { parent, view, position, id ->
                             val intent = Intent(this@MainActivity, AnimalInfoActivity::class.java)
                             if (animalList[position] != null) {
