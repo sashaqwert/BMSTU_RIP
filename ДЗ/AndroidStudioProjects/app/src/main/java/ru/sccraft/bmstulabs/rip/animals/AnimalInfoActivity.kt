@@ -24,9 +24,9 @@ class AnimalInfoActivity : AppCompatActivity() {
          var animal_id = 0
      }
 
-    var tv_name :TextView? = null
-    var tv_type :TextView? = null
-    var img :ImageView? = null
+    private lateinit var tv_name :TextView
+    private lateinit var tv_type :TextView
+    private lateinit var img :ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,9 +45,9 @@ class AnimalInfoActivity : AppCompatActivity() {
         tv_type = findViewById(R.id.info_animal_type)
         img = findViewById(R.id.info_animal_photo)
 
-        tv_name!!.text = animal_name
-        tv_type!!.text = animal_type
-        Glide.with(this).load(animal_photo).into(img!!)
+        tv_name.text = animal_name
+        tv_type.text = animal_type
+        Glide.with(this).load(animal_photo).into(img)
     }
 
     private fun setupActionBar() {

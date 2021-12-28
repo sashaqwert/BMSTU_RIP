@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +17,8 @@ import ru.sccraft.bmstulabs.rip.animals.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var pb: ProgressBar
+    private lateinit var lw: ListView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +27,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
+
+        pb = findViewById(R.id.progressBar_main)
+        lw = findViewById(R.id.listView_animals)
 
         binding.fab.setOnClickListener { view ->
             val intent = Intent(this, AnimalAddActivity::class.java)
@@ -59,6 +65,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun получить_данные_из_API() {
+        показать_индикатор_загрузки()
         NetworkService.getInstance()
             .jsonApi
             .allAnimals
@@ -68,10 +75,9 @@ class MainActivity : AppCompatActivity() {
                     response: retrofit2.Response<List<Animal?>?>
                 ) {
                     val animalList = response.body()
-                    val lw = findViewById<ListView>(R.id.listView_animals)
                     if (animalList != null) {
                         Log.i("MainActivity", "Данные из API успешно получены!")
-                        val adapter = ArrayAdapter<Animal>(this@MainActivity, android.R.layout.simple_list_item_1, android.R.id.text1, animalList);
+                        val adapter = ArrayAdapter<Animal>(this@MainActivity, android.R.layout.simple_list_item_1, android.R.id.text1, animalList)
                         lw.adapter = adapter
                         lw.setOnItemClickListener { parent, view, position, id ->
                             val intent = Intent(this@MainActivity, AnimalInfoActivity::class.java)
@@ -88,12 +94,12 @@ class MainActivity : AppCompatActivity() {
                         //404 - Прокси-сервер выключен //502 - прокси-сервер включён, но API выключен
                         val error_arrayList = ArrayList<String>(1)
                         error_arrayList.add("Не удалось получить данные!")
-                        val adapter = ArrayAdapter<String>(this@MainActivity, android.R.layout.simple_list_item_1, android.R.id.text1, error_arrayList)
+                        val adapter = ArrayAdapter(this@MainActivity, android.R.layout.simple_list_item_1, android.R.id.text1, error_arrayList)
                         lw.adapter = adapter
                         lw.setOnItemClickListener { parent, view, position, id ->}
                         показать_диалог_ошибки_загрузки()
-
                     }
+                    скрыть_индикатор_загрузки()
                 }
 
                 override fun onFailure(call: Call<List<Animal?>?>, t: Throwable) {
@@ -101,12 +107,12 @@ class MainActivity : AppCompatActivity() {
                     Log.e("MainActivity", "Не удалось получить данные из API")
                     t.printStackTrace()
                     показать_диалог_ошибки_загрузки()
+                    скрыть_индикатор_загрузки()
                 }
             })
     }
 
-    // When User cilcks on dialog button, call this method
-    fun показать_диалог_ошибки_загрузки() {
+    private fun показать_диалог_ошибки_загрузки() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle(R.string.dialog_fail_download_title)
         builder.setMessage(R.string.dialog_fail_download_text)
@@ -125,5 +131,15 @@ class MainActivity : AppCompatActivity() {
             startActivity(открыть_API_в_браузере)
         }
         builder.show()
+    }
+
+    private fun показать_индикатор_загрузки() {
+        lw.visibility = View.GONE
+        pb.visibility = View.VISIBLE
+    }
+
+    private fun скрыть_индикатор_загрузки() {
+        lw.visibility = View.VISIBLE
+        pb.visibility = View.GONE
     }
 }
