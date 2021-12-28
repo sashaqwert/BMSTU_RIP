@@ -65,7 +65,7 @@ class AboutActivity : AppCompatActivity(R.layout.activity_about) {
             var линия: String? = ""
             do  {
                 линия = bufferedReader.readLine()
-                лог.append(линия)
+                лог.append("$линия\n")
             } while (линия != null)
             return лог.toString()
         } catch (e: IOException) {
