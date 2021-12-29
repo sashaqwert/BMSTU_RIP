@@ -18,7 +18,7 @@
     <string name="animal_type">Вид животного</string>
     <string name="animal_photo_alternative_text">Фото животного</string>
     <string name="title_activity_animalInfo">О животном</string>
-    <string name="animal_photo_url">Ссылка на картинку (https://...)</string>
+    <string name="animal_photo_url">Ссылка на картинку (https://…)</string>
     <string name="action_save">Сохранить</string>
     <string name="dialog_fail_download_text">Проверьте, подключено ли ваше Android устройство (или эмулятор) к интернету и повторите попытку.\nВ настоящее время приложение поддерживает только HTTPS трафик.</string>
     <string name="dialog_fail_download_title">Ошибка загрузки данных</string>
